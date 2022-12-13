@@ -10,7 +10,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
@@ -23,6 +25,8 @@ public class Pizza implements PriceableInt{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
+	
 	
 	@NotNull
 	@NotEmpty(message = "La pizza deve avere un nome")
@@ -41,6 +45,10 @@ public class Pizza implements PriceableInt{
 	@JoinColumn(name="id_promozione", nullable = true)
 	private Promozione promozione;
 	
+	@ManyToMany()
+	private List<Ingrediente> ingrediente;
+	
+	
 	
 	public Pizza() { }
 	public Pizza(String nome, String descrizione, int prezzo, Promozione promozione) {
@@ -48,6 +56,21 @@ public class Pizza implements PriceableInt{
 		setNome(nome);
 		setDescrizione(descrizione);
 		setPromozione(promozione);
+	}
+	
+	public Pizza(String nome, String descrizione, int prezzo, Promozione promozione, List<Ingrediente> ingrediente) {
+		setPrezzo(prezzo);
+		setNome(nome);
+		setDescrizione(descrizione);
+		setPromozione(promozione);
+		setIngrediente(ingrediente);
+	}
+	
+	public List<Ingrediente> getIngrediente() {
+		return ingrediente;
+	}
+	public void setIngrediente(List<Ingrediente> ingrediente) {
+		this.ingrediente = ingrediente;
 	}
 	
 	public int getId() {
