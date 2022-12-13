@@ -19,7 +19,6 @@
 			th:object="${pizza}" 
 			class="w-75 mx-auto"
 	>
-	
 	  <div class="mb-3">
 	    <label class="form-label">Nome</label>
 	    <input type="text" class="form-control" name="nome" th:field="*{nome}">
@@ -36,6 +35,27 @@
 	    <input type="number" class="form-control" name="prezzo" th:field="*{prezzo}">
 	  </div>
 	  
+	  <select>
+			
+		>
+		<option
+			th:each="promo : ${promozione}"
+			th:object="${promo}"
+			
+			name="promozione" 
+			
+			th:value="*{id}" 
+			th:field="${pizza.promozione}"
+		>
+		[[*{titolo}]]
+		</option>
+		<option 
+			th:value ="null"
+		>
+		NESSUNA PROMO
+		</option>
+	  </select>
+		
 	  <button type="submit" class="btn btn-primary"  value="UPDATE">Submit</button>
 	</form>
 </body>
