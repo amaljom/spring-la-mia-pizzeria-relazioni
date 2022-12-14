@@ -30,7 +30,7 @@ public class IngredienteService {
 		return ingredRepo.findById(id);
 	}
 
-	public void deletePromotionById(int id) {
+	public void deleteIngredieteById(int id) {
 		ingredRepo.deleteById(id);
 	}
 }

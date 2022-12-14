@@ -101,7 +101,7 @@ public class IngredienteController {
 		for (Pizza pizza : pizzas)
 			pizza.getIngrediente().remove(ingrediente2);
 		
-		ingredienteService.deletePromotionById(id);
+		ingredienteService.deleteIngredieteById(id);
 		return "redirect:/ingrediente";
 	}
 	
