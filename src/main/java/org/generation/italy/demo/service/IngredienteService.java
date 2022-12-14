@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.generation.italy.demo.pojo.Ingrediente;
+import org.generation.italy.demo.pojo.Pizza;
 import org.generation.italy.demo.pojo.Promozione;
 import org.generation.italy.demo.repo.IngredienteRepo;
 import org.generation.italy.demo.repo.PromozioneRepo;
@@ -28,7 +29,7 @@ public class IngredienteService {
 	public Optional<Ingrediente> getIngredientById(int id) {
 		return ingredRepo.findById(id);
 	}
-	
+
 	public void deletePromotionById(int id) {
 		ingredRepo.deleteById(id);
 	}

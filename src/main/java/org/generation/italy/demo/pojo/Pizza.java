@@ -51,6 +51,7 @@ public class Pizza implements PriceableInt{
 	
 	
 	public Pizza() { }
+	
 	public Pizza(String nome, String descrizione, int prezzo, Promozione promozione) {
 		setPrezzo(prezzo);
 		setNome(nome);
@@ -100,6 +101,16 @@ public class Pizza implements PriceableInt{
 	}
 	public void setPromozione(Promozione promozione) {
 		this.promozione = promozione;
+	}
+	public void addIngredients(Ingrediente ingrediente) {
+		
+		boolean finded = false;
+		for (Ingrediente i : getIngrediente()) 
+			if (i.getId() == ingrediente.getId())
+				finded = true;
+		
+		if (!finded) 
+			getIngrediente().add(ingrediente);
 	}
 	@Override
 	public int getPrezzo() {

@@ -38,7 +38,24 @@
 	    <input type="number" class="form-control" name="prezzo" th:field="*{prezzo}">
 	  </div>
 	  
+	  <div 
+			th:each="ingrediente : ${ingredienti}"
+			th:object="${ingrediente}"
+		>
+			
+			<input 
+				type="checkbox" 
+				name="ingrediente" 
+				th:value="*{id}" 
+				th:field="${pizza.ingrediente}"
+			>
+	  		<label>[[*{nome}]]</label>
+			
+		</div>	
+	  
 	  <button type="submit" class="btn btn-primary"  value="UPDATE">Submit</button>
+	  
+	  
 	</form>
 </body>
 </html>

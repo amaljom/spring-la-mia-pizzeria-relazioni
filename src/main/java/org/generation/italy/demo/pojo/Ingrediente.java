@@ -2,6 +2,7 @@ package org.generation.italy.demo.pojo;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,7 +41,12 @@ public class Ingrediente {
 		setNome(nome);
 		
 	}
-	
+	/*
+	public Ingrediente(String nome, List<Pizza> pizza) {
+		setNome(nome);
+		
+	}
+	*/
 	public String getNome() {
 		return nome;
 	}
@@ -51,6 +57,9 @@ public class Ingrediente {
 		return id;
 	}
 	
+	public void setId(int id) {
+		this.id = id;
+	}
 	public List<Pizza> getPizza() {
 		return pizza;
 	}
